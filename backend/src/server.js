@@ -11,8 +11,27 @@ const { authenticateToken } = require('./middleware/auth');
 const { sendContactEmail, sendConfirmationEmail } = require('./services/emailService');
 const adminRoutes = require('./routes/adminRoutes');
 
-// Middleware
-app.use(cors());
+// Middleware - CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5000',
+  // Add your Netlify URL after deployment
+  // 'https://your-site-name.netlify.app',
+  // 'https://your-custom-domain.com'
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
