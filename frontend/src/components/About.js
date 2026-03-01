@@ -9,7 +9,7 @@ const About = () => {
           <div className="about-text">
             <h2>About Architect Silas</h2>
             <p>
-              With over 15 years of experience in architectural design and urban planning, I have dedicated
+              With over 5 years of experience in architectural design and urban planning, I have dedicated
               my career to creating spaces that seamlessly blend aesthetic elegance with practical functionality.
               My approach focuses on understanding the unique needs of each client and translating their vision
               into remarkable, timeless designs.
