@@ -25,7 +25,7 @@ const Projects = () => {
     try {
       setLoading(true);
       const params = filter !== 'All' ? { category: filter } : {};
-      const response = await axios.get('http://localhost:5000/api/projects', { params });
+      const response = await axios.get(`${API_ORIGIN}/api/projects`, { params });
       setProjects(response.data);
     } catch (error) {
       console.error('Error fetching projects:', error);

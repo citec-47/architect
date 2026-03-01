@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../styles/AdminDashboard.css';
 
 const API_ORIGIN = process.env.REACT_APP_API_ORIGIN || 'http://localhost:5000';
+const API_BASE = `${API_ORIGIN}/api`;
 
 const resolveMediaUrl = (mediaUrl) => {
   if (!mediaUrl) {
@@ -47,9 +48,9 @@ const AdminDashboard = () => {
   const loadDashboardData = useCallback(async () => {
     try {
       const [projectsRes, galleryRes, messagesRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/projects'),
-        axios.get('http://localhost:5000/api/gallery'),
-        axios.get('http://localhost:5000/api/contact', {
+        axios.get(`${API_BASE}/projects`),
+        axios.get(`${API_BASE}/gallery`),
+        axios.get(`${API_BASE}/contact`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -66,7 +67,7 @@ const AdminDashboard = () => {
   const verifyToken = useCallback(async () => {
     try {
       setLoading(true);
-      await axios.get('http://localhost:5000/api/admin/verify', {
+      await axios.get(`${API_BASE}/admin/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setIsLoggedIn(true);
@@ -95,7 +96,7 @@ const AdminDashboard = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login', {
+      const response = await axios.post(`${API_BASE}/admin/login`, {
         email,
         password,
       });
@@ -128,7 +129,7 @@ const AdminDashboard = () => {
   const markAsRead = async (messageId) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/contact/${messageId}/read`,
+        `${API_BASE}/contact/${messageId}/read`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -145,7 +146,7 @@ const AdminDashboard = () => {
     
     try {
       await axios.delete(
-        `http://localhost:5000/api/contact/${messageId}`,
+        `${API_BASE}/contact/${messageId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessages(messages.filter(m => m.id !== messageId));
@@ -161,7 +162,7 @@ const AdminDashboard = () => {
     
     try {
       await axios.delete(
-        `http://localhost:5000/api/projects/${projectId}`,
+        `${API_BASE}/projects/${projectId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setProjects(projects.filter(p => p.id !== projectId));
@@ -177,7 +178,7 @@ const AdminDashboard = () => {
     
     try {
       await axios.delete(
-        `http://localhost:5000/api/gallery/${imageId}`,
+        `${API_BASE}/gallery/${imageId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setGallery(gallery.filter(g => g.id !== imageId));
@@ -235,7 +236,7 @@ const AdminDashboard = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:5000/api/projects',
+        `${API_BASE}/projects`,
         projectData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -306,7 +307,7 @@ const AdminDashboard = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/api/projects/${editingProject.id}`,
+        `${API_BASE}/projects/${editingProject.id}`,
         projectData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

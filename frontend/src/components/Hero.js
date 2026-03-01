@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Hero.css';
 
+const API_ORIGIN = process.env.REACT_APP_API_ORIGIN || 'http://localhost:5000';
+
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [images, setImages] = useState([]);
@@ -13,7 +15,7 @@ const Hero = () => {
 
   const fetchGalleryImages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/gallery');
+      const response = await axios.get(`${API_ORIGIN}/api/gallery`);
       setImages(response.data);
     } catch (error) {
       console.error('Error fetching gallery images:', error);
