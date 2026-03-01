@@ -18,11 +18,26 @@
   align-items: center;
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
 .logo h1 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   margin: 0;
+  color: #111111;
 }
 
 .nav ul {
@@ -73,6 +88,12 @@
 
   .logo h1 {
     font-size: 1.2rem;
+    letter-spacing: 0.09em;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
   }
 
   .menu-toggle {

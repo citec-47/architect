@@ -19,9 +19,24 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
-          <h1>ARCHITECT SILAS</h1>
-        </div>
+        <a
+          className="brand-link"
+          href="#home"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection('home');
+          }}
+          aria-label="Go to home"
+        >
+          <img
+            src="/brand-icon.svg"
+            alt="Architect Silas logo"
+            className="brand-icon"
+          />
+          <div className="logo">
+            <h1>ARCHITECT SILAS</h1>
+          </div>
+        </a>
 
         <button className="menu-toggle" onClick={toggleMenu}>
           <span></span>
