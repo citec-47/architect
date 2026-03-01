@@ -386,12 +386,6 @@ const AdminDashboard = () => {
               {loading ? 'Logging in...' : 'Login'}
             </button>
           </form>
-
-          <div className="demo-credentials">
-            <p><strong>Demo Credentials:</strong></p>
-            <p>Email: <code>silaschah18@gmail.com</code></p>
-            <p>Password: <code>Admin@123456</code></p>
-          </div>
         </div>
       </div>
     );
