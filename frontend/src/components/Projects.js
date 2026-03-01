@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Projects.css';
 
-const API_ORIGIN = process.env.REACT_APP_API_ORIGIN || 'http://localhost:5000';
+const API_ORIGIN = process.env.REACT_APP_API_ORIGIN || 'https://architect-o17k.onrender.com';
 
 const resolveMediaUrl = (mediaUrl) => {
   if (!mediaUrl) {
