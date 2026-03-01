@@ -53,7 +53,7 @@ const sendContactEmail = async (name, email, message) => {
 
     const mailOptions = {
       from: process.env.EMAIL_FROM || 'noreply@architectsilas.com',
-      to: process.env.ADMIN_EMAIL || 'admin@architectsilas.com',
+      to: process.env.ADMIN_EMAIL || 'silaschah18@gmail.com',
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>

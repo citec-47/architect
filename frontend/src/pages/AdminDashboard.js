@@ -365,7 +365,7 @@ const AdminDashboard = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@architectsilas.com"
+                placeholder="silaschah18@gmail.com"
                 required
               />
             </div>
@@ -389,7 +389,7 @@ const AdminDashboard = () => {
 
           <div className="demo-credentials">
             <p><strong>Demo Credentials:</strong></p>
-            <p>Email: <code>admin@architectsilas.com</code></p>
+            <p>Email: <code>silaschah18@gmail.com</code></p>
             <p>Password: <code>Admin@123456</code></p>
           </div>
         </div>

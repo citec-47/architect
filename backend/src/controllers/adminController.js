@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const { generateToken } = require('../middleware/auth');
 
 // In-memory admin user (in production, this would be in database)
-const ADMIN_EMAIL = 'admin@architectsilas.com';
+const ADMIN_EMAIL = 'silaschah18@gmail.com';
 const ADMIN_PASSWORD_HASH = bcrypt.hashSync('Admin@123456', 10);
 
 const adminController = {
