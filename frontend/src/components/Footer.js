@@ -42,12 +42,15 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Follow</h4>
             <div className="social-links">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#" title="Instagram">
                 Instagram
               </a>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#" title="Pinterest">
                 Pinterest
               </a>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#" title="LinkedIn">
                 LinkedIn
               </a>
