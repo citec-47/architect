@@ -15,8 +15,8 @@ const adminRoutes = require('./routes/adminRoutes');
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5000',
-  // Add your Netlify URL after deployment
-  // 'https://your-site-name.netlify.app',
+  'https://architectsilas.netlify.app',
+  // Add custom domain if you have one
   // 'https://your-custom-domain.com'
 ];
 
