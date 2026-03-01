@@ -11,6 +11,17 @@ const { authenticateToken } = require('./middleware/auth');
 const { sendContactEmail, sendConfirmationEmail } = require('./services/emailService');
 const adminRoutes = require('./routes/adminRoutes');
 
+// Cloudinary configuration (for production)
+const useCloudinary = process.env.USE_CLOUDINARY === 'true';
+let cloudinaryImageStorage, cloudinaryVideoStorage;
+
+if (useCloudinary) {
+  const { cloudinaryImageStorage: imgStorage, cloudinaryVideoStorage: vidStorage } = require('./config/cloudinary');
+  cloudinaryImageStorage = imgStorage;
+  cloudinaryVideoStorage = vidStorage;
+  console.log('☁️  Using Cloudinary for file storage');
+}
+
 // Middleware - CORS configuration
 const allowedOrigins = [
   'http://localhost:3000',
@@ -35,17 +46,34 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Check if using Cloudinary for file storage
+const useCloudinary = process.env.USE_CLOUDINARY === 'true';
+let cloudinaryImageStorage, cloudinaryVideoStorage;
+
+if (useCloudinary) {
+  try {
+    const cloudinaryConfig = require('./config/cloudinary');
+    cloudinaryImageStorage = cloudinaryConfig.cloudinaryImageStorage;
+    cloudinaryVideoStorage = cloudinaryConfig.cloudinaryVideoStorage;
+    console.log('☁️  Using Cloudinary for file storage');
+  } catch (err) {
+    console.log('⚠️  Cloudinary not configured, falling back to local storage');
+  }
+}
+
 const uploadsRoot = path.join(__dirname, '..', 'uploads');
 const imageUploadsPath = path.join(uploadsRoot, 'images');
 const videoUploadsPath = path.join(uploadsRoot, 'videos');
 
-[uploadsRoot, imageUploadsPath, videoUploadsPath].forEach((dirPath) => {
-  fs.mkdirSync(dirPath, { recursive: true });
-});
+if (!useCloudinary || !cloudinaryImageStorage) {
+  [uploadsRoot, imageUploadsPath, videoUploadsPath].forEach((dirPath) => {
+    fs.mkdirSync(dirPath, { recursive: true });
+  });
+  app.use('/uploads', express.static(uploadsRoot));
+  console.log('💾 Using local file storage');
+}
 
-app.use('/uploads', express.static(uploadsRoot));
-
-const projectMediaStorage = multer.diskStorage({
+const projectMediaStorage = (!useCloudinary || !cloudinaryImageStorage) ? multer.diskStorage({
   destination: (req, file, callback) => {
     if (file.mimetype.startsWith('image/')) {
       callback(null, imageUploadsPath);
@@ -64,7 +92,7 @@ const projectMediaStorage = multer.diskStorage({
       .replace(/[^a-zA-Z0-9_-]/g, '-');
     callback(null, `${Date.now()}-${safeBaseName}${extension}`);
   },
-});
+}) : cloudinaryImageStorage;
 
 const uploadProjectMedia = multer({
   storage: projectMediaStorage,
@@ -85,6 +113,11 @@ const uploadProjectMedia = multer({
 ]);
 
 const toPublicMediaPath = (filePath) => {
+  // If it's already a URL (Cloudinary), return as-is
+  if (filePath && (filePath.startsWith('http://') || filePath.startsWith('https://'))) {
+    return filePath;
+  }
+  // Local file path - convert to relative URL
   const relativePath = path.relative(path.join(__dirname, '..'), filePath);
   return `/${relativePath.replace(/\\/g, '/')}`;
 };
