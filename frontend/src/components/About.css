@@ -99,23 +99,47 @@
 
 @media (max-width: 480px) {
   .about {
-    padding-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .about-content {
+    gap: 2rem;
   }
 
   .about-text h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .about-text p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .philosophy {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
   }
 
   .philosophy h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  .philosophy p {
+    font-size: 0.9rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat {
+    padding: 1.5rem;
   }
 
   .stat h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .stat p {

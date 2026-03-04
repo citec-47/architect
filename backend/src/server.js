@@ -46,21 +46,6 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Check if using Cloudinary for file storage
-const useCloudinary = process.env.USE_CLOUDINARY === 'true';
-let cloudinaryImageStorage, cloudinaryVideoStorage;
-
-if (useCloudinary) {
-  try {
-    const cloudinaryConfig = require('./config/cloudinary');
-    cloudinaryImageStorage = cloudinaryConfig.cloudinaryImageStorage;
-    cloudinaryVideoStorage = cloudinaryConfig.cloudinaryVideoStorage;
-    console.log('☁️  Using Cloudinary for file storage');
-  } catch (err) {
-    console.log('⚠️  Cloudinary not configured, falling back to local storage');
-  }
-}
-
 const uploadsRoot = path.join(__dirname, '..', 'uploads');
 const imageUploadsPath = path.join(uploadsRoot, 'images');
 const videoUploadsPath = path.join(uploadsRoot, 'videos');

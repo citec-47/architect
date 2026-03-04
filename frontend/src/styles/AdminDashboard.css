@@ -738,73 +738,52 @@
 @media (max-width: 768px) {
   .admin-header {
     flex-direction: column;
-    gap: 15px;
-    padding: 15px 20px;
+    gap: 12px;
+    padding: 12px 15px;
   }
 
   .admin-header h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .logout-btn {
     width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
   }
 
   .admin-tabs {
-    padding: 0 20px;
-    overflow-x: auto;
+    padding: 0 15px;
   }
 
   .tab {
     padding: 12px 16px;
-    font-size: 13px;
-  }
-
-  .admin-content {
-    padding: 20px;
-  }
-
-  .items-grid,
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-  }
-
-  .messages-table {
     font-size: 12px;
   }
 
-  .messages-table-wrapper {
-    margin: 0 -4px;
-    padding: 0 4px;
-  }
-
-  .messages-table th,
-  .messages-table td {
-    padding: 12px 8px;
-  }
-
-  .login-container {
-    padding: 30px 20px;
-  }
-
-  .login-container h1 {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
   .admin-content {
     padding: 15px;
   }
 
-  .project-form-container {
-    padding: 20px;
-  }
-
   .items-grid,
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .item-card img,
+  .item-media-placeholder {
+    height: 140px;
+  }
+
+  .item-card h3 {
+    font-size: 14px;
+    padding: 12px 12px 6px;
+  }
+
+  .item-card p {
+    font-size: 12px;
+    padding: 0 12px;
   }
 
   .messages-table {
@@ -816,20 +795,240 @@
     padding: 10px 6px;
   }
 
+  .login-container {
+    padding: 25px 20px;
+    max-width: 90%;
+  }
+
+  .login-container h1 {
+    font-size: 22px;
+  }
+
+  .project-form-container {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .admin-header h1 {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logout-btn {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .admin-tabs {
+    padding: 0 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    padding: 10px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .admin-content {
+    padding: 12px;
+  }
+
+  .tab-content h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .items-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .item-card,
+  .gallery-item {
+    border-radius: 4px;
+  }
+
+  .item-card img,
+  .item-media-placeholder,
+  .gallery-item img {
+    height: 100px;
+  }
+
+  .item-card h3,
+  .gallery-item h3 {
+    font-size: 13px;
+    padding: 8px 10px 4px;
+  }
+
+  .item-card p {
+    font-size: 11px;
+    padding: 0 10px;
+  }
+
+  .item-card .delete-btn,
+  .gallery-item .delete-btn {
+    width: calc(100% - 20px);
+    margin: 0 10px 10px;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .category {
+    font-size: 10px !important;
+    padding: 3px 6px !important;
+    margin: 0 10px 8px 10px !important;
+  }
+
+  .messages-table {
+    font-size: 10px;
+  }
+
+  .messages-table th,
+  .messages-table td {
+    padding: 8px 4px;
+  }
+
   .action-btn,
   .delete-btn {
     padding: 4px 8px;
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .status-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .login-container {
+    padding: 20px 15px;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+
+  .login-container h1 {
+    font-size: 20px;
+  }
+
+  .login-subtitle {
+    font-size: 12px;
+  }
+
+  .demo-credentials {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .demo-credentials p {
+    font-size: 12px;
+    margin: 6px 0;
+  }
+
+  .project-form-container {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+
+  .project-form-container h3 {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .form-row {
+    gap: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submit-btn,
+  .cancel-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .create-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .existing-media-list {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .existing-media-item img,
+  .existing-media-item video {
+    height: 80px;
+  }
+
+  .remove-image-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
+
+  .add-image-btn {
+    padding: 8px 15px;
+    font-size: 12px;
   }
 
   .media-preview-modal {
     padding: 10px;
   }
 
-  .media-preview-content .close-modal {
-    top: 8px;
-    right: 8px;
-    font-size: 30px;
+  .preview-image,
+  .preview-video {
+    max-height: 80vh;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  .admin-header h1 {
+    font-size: 14px;
+  }
+
+  .tab {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .items-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .login-container {
+    padding: 15px 12px;
+    margin: 0;
   }
 }
 
