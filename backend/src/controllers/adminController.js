@@ -3,10 +3,10 @@ const { generateToken } = require('../middleware/auth');
 
 // In-memory admin user (in production, this would be in database)
 // Allow overriding via environment variables for deploys and local testing
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@architectsilas.com';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'studio@architectsilas.com';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH
   ? process.env.ADMIN_PASSWORD_HASH
-  : bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'Admin@123456', 10);
+  : bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'ArchiBuild@2026', 10);
 
 const adminController = {
   // Admin Login
