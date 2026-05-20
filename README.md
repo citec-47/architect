@@ -4,7 +4,8 @@ A comprehensive architectural portfolio website with a powerful admin dashboard 
 
 ## Features
 
-### 🎨 Landing Page
+### 🎨🎨🎨 Landing Page
+
 - **Dynamic Project Display**: All projects created in admin dashboard automatically appear on the landing page
 - **Category Filtering**: Filter projects by Residential, Commercial, or Hospitality
 - **Image Gallery Carousel**: All project images automatically appear in the Hero gallery section

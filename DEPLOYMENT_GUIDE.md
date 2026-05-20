@@ -222,4 +222,4 @@ Both Netlify and Render support auto-deployment:
 
 ---
 
-**🎉 Your site is live!**
+**🎉 My site is live!**

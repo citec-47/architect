@@ -76,7 +76,7 @@ cd architect
 
 #### 2. Backend Setup
 
-```bash
+`````````bash
 cd backend
 
 # Install dependencies
@@ -102,7 +102,7 @@ This will:
 
 #### 4. Start Backend Server
 
-```bash
+`````````bash
 # Development mode with auto-reload
 npm run dev
 
