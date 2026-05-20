@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ReelScript from './components/ReelScript';
 import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Hero />
               <Projects />
               <About />
+              <ReelScript />
               <Contact />
               <Footer />
             </div>
