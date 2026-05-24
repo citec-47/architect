@@ -466,10 +466,15 @@ function Field({
   children: React.ReactNode;
   className?: string;
 }) {
+  // Wrapping children inside <label> creates an implicit input<->label
+  // association — no need for htmlFor/id pairs on every input, and the
+  // a11y linter stops complaining about "form element has no label".
   return (
-    <div className={className}>
-      <label className="text-xs tracking-widest uppercase text-white/45 block mb-2">{label}</label>
+    <label className={`block ${className}`}>
+      <span className="text-xs tracking-widest uppercase text-white/45 block mb-2">
+        {label}
+      </span>
       {children}
-    </div>
+    </label>
   );
 }
