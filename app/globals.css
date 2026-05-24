@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-page: #4d5a62;          /* outer slate-grey behind the cards */
+  --bg-card: #131c22;          /* dark inner panels (Hero / Services / House Plan) */
+  --bg-card-soft: #1a242b;
+  --text-primary: #f3f5f6;
+  --text-muted: #9aa6ad;
+  --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+html, body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-display {
+  font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Reusable GLASSHAVEN-style card */
+.glass-card {
+  background-color: var(--bg-card);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hero-mega-title {
+  font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 9vw, 8rem);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.section-title {
+  font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4.5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* Numbered service label "01" */
+.service-number {
+  font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 2.75rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+input, textarea, select {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-soft);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Custom scrollbar for the admin file inputs etc */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
