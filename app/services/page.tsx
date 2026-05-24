@@ -1,5 +1,6 @@
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { adaptiveGridCols } from "@/lib/grid";
 
 const SERVICES = [
   {
@@ -36,7 +37,7 @@ export default function ServicesPage() {
               What the studio offers
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className={`grid gap-6 md:gap-8 ${adaptiveGridCols(SERVICES.length)}`}>
               {SERVICES.map((s) => (
                 <article key={s.n} className="flex flex-col gap-3">
                   <div className="service-number text-white">{s.n}</div>

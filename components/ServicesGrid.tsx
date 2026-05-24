@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cldImage } from "@/lib/cloudinary-url";
+import { adaptiveGridCols } from "@/lib/grid";
 import type { ProjectService } from "@/lib/types";
 
 /**
@@ -11,7 +12,7 @@ export default function ServicesGrid({ services }: { services: ProjectService[] 
   return (
     <section className="glass-card p-5 md:p-12">
       <h2 className="section-title text-white mb-6 md:mb-12">OUR SERVICES</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+      <div className={`grid gap-5 md:gap-6 ${adaptiveGridCols(services.length)}`}>
         {services.map((s) => (
           <article key={s.id} className="flex flex-col gap-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-800">
