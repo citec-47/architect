@@ -51,7 +51,7 @@ async function main() {
   }
   console.log(`  ${statements.length} statements applied.`);
 
-  const email = process.env.ADMIN_EMAIL ?? "studio@architectsilas.com";
+  const email = process.env.ADMIN_EMAIL ?? "silaschah18@gmail.com";
   const password = process.env.ADMIN_PASSWORD ?? "ChangeMe@2026";
   const hash = await bcrypt.hash(password, 10);
 

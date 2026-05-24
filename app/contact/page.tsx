@@ -20,7 +20,7 @@ export default function ContactPage() {
                   <div className="text-xs tracking-widest uppercase text-white/45 mb-1">
                     Email
                   </div>
-                  <div>studio@architectsilas.com</div>
+                  <div>silaschah18@gmail.com</div>
                 </div>
                 <div>
                   <div className="text-xs tracking-widest uppercase text-white/45 mb-1">

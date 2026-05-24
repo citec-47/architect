@@ -39,7 +39,7 @@ export default function AboutPage() {
                   <div className="text-xs tracking-widest uppercase text-white/45 mb-1">
                     Contact
                   </div>
-                  <div>studio@architectsilas.com</div>
+                  <div>silaschah18@gmail.com</div>
                 </div>
               </div>
             </div>

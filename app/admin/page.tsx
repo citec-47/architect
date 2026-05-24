@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { sql } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 type Counts = { projects: number; messages: number; unread: number };
 
 async function getCounts(): Promise<Counts> {

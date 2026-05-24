@@ -49,7 +49,7 @@ CLOUDINARY_API_KEY="123456789012345"
 CLOUDINARY_API_SECRET="abc...xyz"
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your-cloud-name"
 
-ADMIN_EMAIL="studio@architectsilas.com"
+ADMIN_EMAIL="silaschah18@gmail.com"
 ADMIN_PASSWORD="ChangeThisStrongPassword!"
 
 JWT_SECRET="run: openssl rand -base64 32   and paste output here"

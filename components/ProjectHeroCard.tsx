@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "./SiteHeader";
+import { cldImage } from "@/lib/cloudinary-url";
 import type { Project } from "@/lib/types";
 
 /**
@@ -33,10 +34,11 @@ export default function ProjectHeroCard({
     >
       {project.hero_image_url ? (
         <Image
-          src={project.hero_image_url}
+          src={cldImage(project.hero_image_url, 1920)!}
           alt={project.title}
           fill
           priority={height === "tall"}
+          fetchPriority={height === "tall" ? "high" : "auto"}
           sizes="(max-width: 1024px) 100vw, 1280px"
           className="object-cover"
         />

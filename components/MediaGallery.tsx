@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cldImage, cldVideoPoster } from "@/lib/cloudinary-url";
 import type { ProjectMedia } from "@/lib/types";
 
 /**
@@ -34,7 +35,7 @@ function ImagesSection({ images }: { images: ProjectMedia[] }) {
             }`}
           >
             <Image
-              src={item.url}
+              src={cldImage(item.url, 900)!}
               alt={item.caption ?? ""}
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -61,12 +62,11 @@ function VideosSection({ videos }: { videos: ProjectMedia[] }) {
 }
 
 function VideoPlayer({ video }: { video: ProjectMedia }) {
-  const poster = cloudinaryPosterFromVideoUrl(video.url);
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black">
       <video
         src={video.url}
-        poster={poster ?? undefined}
+        poster={cldVideoPoster(video.url)}
         controls
         preload="metadata"
         playsInline
@@ -106,17 +106,3 @@ function SectionHeader({
   );
 }
 
-/**
- * Turn a Cloudinary video URL into an auto-generated still poster.
- *   https://res.cloudinary.com/<cloud>/video/upload/v123/folder/file.mp4
- *     ->
- *   https://res.cloudinary.com/<cloud>/video/upload/so_0,c_fill,w_1280,h_720/folder/file.jpg
- *
- * `so_0` = "start offset 0" (first frame). c_fill/w/h gives a sensible 16:9.
- */
-function cloudinaryPosterFromVideoUrl(url: string): string | null {
-  if (!url.includes("/video/upload/")) return null;
-  return url
-    .replace("/video/upload/", "/video/upload/so_0,c_fill,w_1280,h_720/")
-    .replace(/\.(mp4|mov|webm|avi|mkv)(\?.*)?$/i, ".jpg");
-}

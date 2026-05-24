@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cldImage } from "@/lib/cloudinary-url";
 import type { Project, ProjectRoom } from "@/lib/types";
 
 /**
@@ -42,7 +43,7 @@ export default function HousePlanSection({
         {project.floor_plan_image_url && (
           <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-800">
             <Image
-              src={project.floor_plan_image_url}
+              src={cldImage(project.floor_plan_image_url, 1200)!}
               alt={`${project.title} floor plan`}
               fill
               sizes="(max-width: 1024px) 100vw, 640px"

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cldImage } from "@/lib/cloudinary-url";
 import type { ProjectService } from "@/lib/types";
 
 /**
@@ -16,7 +17,7 @@ export default function ServicesGrid({ services }: { services: ProjectService[] 
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-800">
               {s.image_url && (
                 <Image
-                  src={s.image_url}
+                  src={cldImage(s.image_url, 800)!}
                   alt={s.title}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
